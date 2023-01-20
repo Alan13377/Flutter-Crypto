@@ -26,6 +26,7 @@ class BaseScafold extends ConsumerWidget {
       ),
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -47,7 +48,9 @@ class BaseScafold extends ConsumerWidget {
             ],
           ),
         ),
-        body: navigationProvider.navigateTo(),
+        body: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: navigationProvider.navigateTo()),
         bottomNavigationBar: const BottomNavBar(),
       ),
     );
