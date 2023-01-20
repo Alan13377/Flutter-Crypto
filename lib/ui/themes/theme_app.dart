@@ -39,34 +39,37 @@ class ThemeApp {
   );
 
   static final darkTheme = ThemeData(
-      //*SCAFFOLD
-      scaffoldBackgroundColor: Colors.transparent,
-      appBarTheme: AppBarTheme(
-        titleTextStyle: GoogleFonts.epilogue(color: Colors.white),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: Colors.transparent,
-        unselectedItemColor: Colors.white,
-        elevation: 0,
-      ),
+    //*SCAFFOLD
 
-      //*estilos
-      textTheme: TextTheme(
-        bodyText2: GoogleFonts.inter(color: Colors.white),
-        bodyText1:
-            GoogleFonts.inter(color: Colors.white, fontWeight: FontWeight.bold),
-      ),
-      listTileTheme: const ListTileThemeData(textColor: Colors.white),
-      textButtonTheme: TextButtonThemeData(
-        style: ButtonStyle(
-          foregroundColor: MaterialStateProperty.all(
-            Colors.white,
-          ),
-          padding: MaterialStateProperty.all(
-            const EdgeInsets.symmetric(horizontal: 50),
-          ),
+    scaffoldBackgroundColor: Colors.transparent,
+
+    appBarTheme: AppBarTheme(
+      titleTextStyle: GoogleFonts.epilogue(color: Colors.white),
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+    ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: Colors.transparent,
+      unselectedItemColor: Colors.white,
+      elevation: 0,
+    ),
+
+    //*estilos
+    textTheme: TextTheme(
+      bodyText2: GoogleFonts.inter(color: Colors.white),
+      bodyText1:
+          GoogleFonts.inter(color: Colors.white, fontWeight: FontWeight.bold),
+    ),
+    listTileTheme: const ListTileThemeData(textColor: Colors.white),
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all(
+          Colors.white,
         ),
-      ));
+        padding: MaterialStateProperty.all(
+          const EdgeInsets.symmetric(horizontal: 50),
+        ),
+      ),
+    ),
+  );
 }

@@ -31,144 +31,158 @@ class DetailsPage extends ConsumerWidget {
           final priceChangePercentage24H =
               detail["market_data"]["price_change_percentage_24h"];
           if (text.length > 150) {
-            primeraMitad = text.substring(0, 400);
+            primeraMitad = text.substring(0, 300);
             segundaMitad = text.substring(301, text.length);
           } else {
             primeraMitad = text;
             segundaMitad = "";
           }
 
-          return Scaffold(
-            body: CustomScrollView(
-              slivers: [
-                //*APPBAR
-                SliverAppBar(
-                  pinned: true,
-                  expandedHeight: 250,
-                  backgroundColor: Colors.grey[200],
-                  flexibleSpace: FlexibleSpaceBar(
-                    background: Image.network(
-                      detail["image"]["large"],
-                      width: double.infinity,
-                      height: 100,
-                      fit: BoxFit.cover,
+          return Container(
+            height: double.infinity,
+            decoration: const BoxDecoration(
+              gradient: RadialGradient(
+                center: Alignment.center,
+                radius: 20,
+                colors: [
+                  Color(0XFF0B092E),
+                  Colors.white,
+                  Colors.white,
+                ],
+              ),
+            ),
+            child: Scaffold(
+              body: CustomScrollView(
+                slivers: [
+                  //*APPBAR
+                  SliverAppBar(
+                    pinned: true,
+                    expandedHeight: 250,
+
+                    flexibleSpace: FlexibleSpaceBar(
+                      background: Image.network(
+                        detail["image"]["large"],
+                        width: double.infinity,
+                        height: 100,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                  //**TITULO */
-                  bottom: PreferredSize(
-                    preferredSize: const Size.fromHeight(20),
-                    child: Container(
-                      color: Colors.white,
-                      width: double.infinity,
-                      padding: const EdgeInsets.only(top: 5, bottom: 10),
-                      child: Center(
-                        child: Text(
-                          "${detail["name"]}",
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                    //**TITULO */
+                    bottom: PreferredSize(
+                      preferredSize: const Size.fromHeight(20),
+                      child: Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.only(top: 5, bottom: 10),
+                        child: Center(
+                          child: Text(
+                            "${detail["name"]}",
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                SliverToBoxAdapter(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        //*DESCRIPCION
-                        const Text(
-                          "Description",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                  SliverToBoxAdapter(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          //*DESCRIPCION
+                          const Text(
+                            "Description",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
                           ),
-                        ),
-                        Container(
-                          child: segundaMitad.length == ""
-                              ? Text(
-                                  text.replaceAll(exp, ""),
-                                )
-                              : Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      themeController.isExpanded
-                                          ? primeraMitad
-                                          : text.replaceAll(exp, ""),
-                                    ),
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    Row(
-                                      children: [
-                                        InkWell(
-                                          child: const Text(
-                                            "Sitio Web",
-                                            style: TextStyle(
-                                              color: Color(
-                                                0xFF89dad0,
-                                              ),
-                                            ),
-                                          ),
-                                          onTap: () async {
-                                            final url =
-                                                detail["links"]["homepage"][0];
-                                            if (await canLaunchUrl(
-                                                Uri.parse(url))) {
-                                              await launchUrl(Uri.parse(url));
-                                            } else {
-                                              throw 'Could not launch $url';
-                                            }
-                                          },
-                                        ),
-                                        const Spacer(),
-                                        InkWell(
-                                          onTap: () {
-                                            themeController.isExpanded =
-                                                !themeController.isExpanded;
-                                          },
-                                          child: Row(
-                                            children: const [
-                                              Text(
-                                                "Show More",
-                                                style: TextStyle(
-                                                  color: Color(
-                                                    0xFF89dad0,
-                                                  ),
-                                                ),
-                                              ),
-                                              Icon(
-                                                Icons.keyboard_arrow_down,
+                          Container(
+                            child: segundaMitad.length == ""
+                                ? Text(
+                                    text.replaceAll(exp, ""),
+                                  )
+                                : Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        themeController.isExpanded
+                                            ? primeraMitad
+                                            : text.replaceAll(exp, ""),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Row(
+                                        children: [
+                                          InkWell(
+                                            child: const Text(
+                                              "Sitio Web",
+                                              style: TextStyle(
                                                 color: Color(
                                                   0xFF89dad0,
                                                 ),
                                               ),
-                                            ],
+                                            ),
+                                            onTap: () async {
+                                              final url = detail["links"]
+                                                  ["homepage"][0];
+                                              if (await canLaunchUrl(
+                                                  Uri.parse(url))) {
+                                                await launchUrl(Uri.parse(url));
+                                              } else {
+                                                throw 'Could not launch $url';
+                                              }
+                                            },
                                           ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                        ),
-                        //*PRICES
-                        CustomListTile(
-                          image: "${detail["image"]["thumb"]}",
-                          title: "${detail["name"]}",
-                          subtitle: "${detail["symbol"]}",
-                          currentPrice: currentPrice.toDouble(),
-                          priceChangePercentage24H:
-                              priceChangePercentage24H.toDouble(),
-                        ),
-                      ],
+                                          const Spacer(),
+                                          InkWell(
+                                            onTap: () {
+                                              themeController.isExpanded =
+                                                  !themeController.isExpanded;
+                                            },
+                                            child: Row(
+                                              children: const [
+                                                Text(
+                                                  "Show More",
+                                                  style: TextStyle(
+                                                    color: Color(
+                                                      0xFF89dad0,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Icon(
+                                                  Icons.keyboard_arrow_down,
+                                                  color: Color(
+                                                    0xFF89dad0,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                          ),
+                          //*PRICES
+                          CustomListTile(
+                            image: "${detail["image"]["thumb"]}",
+                            title: "${detail["name"]}",
+                            subtitle: "${detail["symbol"]}",
+                            currentPrice: currentPrice.toDouble(),
+                            priceChangePercentage24H:
+                                priceChangePercentage24H.toDouble(),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           );
         }
