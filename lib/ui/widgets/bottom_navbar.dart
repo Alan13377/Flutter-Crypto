@@ -10,6 +10,7 @@ class BottomNavBar extends ConsumerWidget {
     final items = ref.watch(bottomNavProvider);
     return SizedBox(
       height: 50,
+      width: double.infinity,
       child: BottomNavigationBar(
         iconSize: 18,
         type: BottomNavigationBarType.fixed,

@@ -10,6 +10,7 @@ class CustomList extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final cardProvider = ref.watch(coinsDataProvider);
     final style = Theme.of(context).textTheme.bodyText1;
+    final size = MediaQuery.of(context).size;
     return SizedBox(
       width: double.infinity,
       height: 190,
@@ -17,7 +18,7 @@ class CustomList extends ConsumerWidget {
         data: (cardProvider) {
           return ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: 5,
+            itemCount: size.width < 700 ? 5 : 15,
             itemBuilder: (context, index) {
               return Container(
                 padding:

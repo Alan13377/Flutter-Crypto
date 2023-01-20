@@ -54,7 +54,7 @@ class ThemeApp {
 
       //*estilos
       textTheme: TextTheme(
-        bodyText2: const TextStyle(color: Colors.white),
+        bodyText2: GoogleFonts.inter(color: Colors.white),
         bodyText1:
             GoogleFonts.inter(color: Colors.white, fontWeight: FontWeight.bold),
       ),
