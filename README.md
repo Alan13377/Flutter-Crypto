@@ -1,16 +1,21 @@
-# crypto_flutter
 
-A new Flutter project.
+# Crypto Wallet App
 
-## Getting Started
+ Clon del Diseño de Figma https://www.figma.com/community/file/1009469126197441733 realizado en Flutter.
+ La aplicacion permite a los usuarios ver el valor de diferentes criptomonedas en tiempo real, y ver la informacion más relevante de cada moneda.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+## Screenshots
+
+![App Screenshot](https://res.cloudinary.com/imagenes-api/image/upload/v1674256875/UI_light_nuj1r7.png)
+![App Screenshot](https://res.cloudinary.com/imagenes-api/image/upload/v1674256875/UI_light_1_ob39gn.png)
+![App Screenshot](https://res.cloudinary.com/imagenes-api/image/upload/v1674256875/UI_light_2_oh5vs8.png)
+
+## Aplicación en Tema Obscuro
+![App Screenshot](https://res.cloudinary.com/imagenes-api/image/upload/v1674256875/UI_Dark_3_i7qgt8.png)
+![App Screenshot](https://res.cloudinary.com/imagenes-api/image/upload/v1674256875/UI_Dark_4_ibtsdw.png)
+![App Screenshot](https://res.cloudinary.com/imagenes-api/image/upload/v1674256875/UI_Dark_5_du3asu.png)
